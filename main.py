@@ -4,6 +4,8 @@ from snake import Snake
 from food import Food
 from score import Score
 
+SPEED = 0.3
+
 s = Screen()
 s.setup(600, 600)
 s.bgcolor((0, 0, 0))
@@ -27,13 +29,19 @@ def turn(angle):
 
 while not game_over:
     s.update()
-    time.sleep(0.1)
+    time.sleep(SPEED)
     snake.move_forward()
 
     if snake.head.distance(food) < 15:
         score.increasse()
         food.refresh()
-        
+        snake.extend()
+        SPEED -= 0.03 * score.score // 3
+    
+    for segment in snake.segments:
+        if snake.head.distance(segment) < 5 and segment != snake.head:
+            score.game_over()
+            game_over = True
     
 
 s.exitonclick()
