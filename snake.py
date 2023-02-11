@@ -25,29 +25,29 @@ class Snake:
             new_x = self.segments[seg_num - 1].xcor()
             new_y = self.segments[seg_num - 1].ycor()
             self.segments[seg_num].goto(new_x, new_y)
-        if self.segments[0].xcor() > 300:
-            self.segments[0].goto(-300, new_y)
-        if self.segments[0].ycor() > 300:
-            self.segments[0].goto(new_x, -300)
-        if self.segments[0].xcor() < -300:
-            self.segments[0].goto(300, new_y)
-        if self.segments[0].ycor() < -300:
-            self.segments[0].goto(new_x, 300)
+        if self.head.xcor() > 300:
+            self.head.goto(-300, new_y)
+        if self.head.ycor() > 300:
+            self.head.goto(new_x, -300)
+        if self.head.xcor() < -300:
+            self.head.goto(300, new_y)
+        if self.head.ycor() < -300:
+            self.head.goto(new_x, 300)
 
-        self.segments[0].forward(MOVE_DISTANCE)
+        self.head.forward(MOVE_DISTANCE)
 
     def up(self):
-        if self.segments[0].heading() != 270:
-            self.segments[0].setheading(90)
+        if self.head.heading() != 270:
+            self.head.setheading(90)
 
     def right(self):
-        if self.segments[0].heading() != 180:
-            self.segments[0].setheading(0)
+        if self.head.heading() != 180:
+            self.head.setheading(0)
 
     def down(self):
-        if self.segments[0].heading() != 90:
-            self.segments[0].setheading(270)
+        if self.head.heading() != 90:
+            self.head.setheading(270)
 
     def left(self):
-        if self.segments[0].heading() != 0:
-            self.segments[0].setheading(180)
+        if self.head.heading() != 0:
+            self.head.setheading(180)
