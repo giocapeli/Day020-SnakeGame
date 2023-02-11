@@ -25,7 +25,7 @@ def turn(angle):
 while not game_over:
     s.update()
     time.sleep(0.1)
-    snake.move_foward()
+    snake.move_forward()
 
     
     
