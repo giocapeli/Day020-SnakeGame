@@ -38,8 +38,8 @@ while not game_over:
         snake.extend()
         SPEED -= 0.03 * score.score // 3
     
-    for segment in snake.segments:
-        if snake.head.distance(segment) < 5 and segment != snake.head:
+    for segment in snake.segments[1:]: #start the list in index 1 and go until last member
+        if snake.head.distance(segment) < 5:
             score.game_over()
             game_over = True
     
