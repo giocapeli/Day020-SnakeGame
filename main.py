@@ -26,7 +26,6 @@ game_over = False
 def turn(angle):
     snake[0].right(angle)
 
-
 while not game_over:
     s.update()
     time.sleep(SPEED)
