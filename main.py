@@ -21,6 +21,10 @@ s.onkey(snake.up, "Up")
 s.onkey(snake.down, "Down")
 s.onkey(snake.right, "Right")
 s.onkey(snake.left, "Left")
+s.onkey(snake.up, "w")
+s.onkey(snake.down, "s")
+s.onkey(snake.right, "d")
+s.onkey(snake.left, "a")
 
 game_over = False
 def turn(angle):
@@ -39,9 +43,10 @@ while not game_over:
     
     for segment in snake.segments[1:]: #start the list in index 1 and go until last member
         if snake.head.distance(segment) < 5:
-            score.reset()
             snake.reset()
-            # game_over = True
+            score.game_over()
+            time.sleep(1)
+            score.reset()
     
 
 s.exitonclick()
