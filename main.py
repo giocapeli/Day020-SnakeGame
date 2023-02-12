@@ -40,8 +40,9 @@ while not game_over:
     
     for segment in snake.segments[1:]: #start the list in index 1 and go until last member
         if snake.head.distance(segment) < 5:
-            score.game_over()
-            game_over = True
+            score.reset()
+            snake.reset()
+            # game_over = True
     
 
 s.exitonclick()
